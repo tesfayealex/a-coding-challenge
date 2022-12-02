@@ -1,3 +1,34 @@
+# Project Description
+
+This is a technical challange project for backend engineers.
+The project focuses on backend application creation for providing an API for Dashboard to get insights. Full description below
+
+# Main Dependencies
+
+- Python 3.8.15
+- FastAPI
+- SQLAlchemy
+- Pandas
+
+Full list can be found and installed in requirements.txt
+
+## Installation
+
+  - For installing dependencies in python 3.8 use
+      pip install -r requirements.txt
+  - If you are using conda environment use
+      python -m pip install -r requirements.txt
+  - For running the backend system use
+      cd app
+      python routes.py
+  - Populate data by going to
+      localhost:8000/populate_data
+# Usage
+
+  All api are using get methods to allow easy usage on browser for example
+    localhost:8000/populate_data 
+    localhost:8000/most_listed_skills?limit=5&offset=2
+
 # Backend Coding Challenge
 
 At aspaara a squad of superheroes works on giving superpowers to planning teams.

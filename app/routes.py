@@ -5,6 +5,7 @@ from fastapi_pagination import Page, Params, paginate, add_pagination, LimitOffs
 import pandas as pd
 from model_for_fastapi_pagination import Planning, PlanningOut
 # import json
+import uvicorn
 
 app = FastAPI()
 add_pagination(app)
@@ -68,3 +69,6 @@ async def filter_with_column(search_column: str = "id" , search_by = 1, limit: i
 @app.get("/")
 async def query():
     return {"message": "Welcome to The Coding Challange Solution you can start by populating the data with /api/populate_data"}
+
+if __name__=='__main__':
+    uvicorn.run("routes:app", host="127.0.0.1", port=8000, reload=True)
