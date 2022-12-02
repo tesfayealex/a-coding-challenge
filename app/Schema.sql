@@ -1,0 +1,22 @@
+create table IF NOT EXISTS "planning" (
+    "id" integer not null unique, 
+    "originalId" varchar(100) not null, 
+    "talentId" varchar(40), 
+    "talentName" text, 
+    "talentGrade" varchar(192), 
+    "bookingGrade" varchar(39), 
+    "operatingUnit" varchar(78) not null,
+    "officeCity" varchar(50) , 
+    "officePostalCode" varchar(10) not null,
+    "jobManagerName" varchar(50) ,
+    "jobManagerID" varchar(50) , 
+    "totalHours" float not null, 
+    "startDate" datetime not null, 
+    "endDate" datetime not null, 
+    "clientName" varchar(50), 
+    "clientID" varchar(50) not null, 
+    "industry" varchar(50), 
+    "requiredSkills" JSON, 
+    "optionalSkills" JSON, 
+    "isUnassigned" boolean
+    );
