@@ -1,5 +1,5 @@
 create table IF NOT EXISTS "planning" (
-    "id" integer not null unique, 
+    "id" integer primary key, 
     "originalId" varchar(100) not null, 
     "talentId" varchar(40), 
     "talentName" text, 
