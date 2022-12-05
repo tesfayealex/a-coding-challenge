@@ -5,6 +5,7 @@ The project focuses on backend application creation for providing an API for Das
 
 # Main Dependencies
 
+- SQlite3 (Make sure you install this)
 - Python 3.8
 - FastAPI
 - SQLAlchemy
@@ -26,7 +27,7 @@ Full list can be found and installed from requirements.txt
   For running the backend system use
 
       cd app
-      python routes.py
+      python api.py
 
   Populate data by going to
 
@@ -38,6 +39,7 @@ Full list can be found and installed from requirements.txt
 
     localhost:8000/api/populate_data
     localhost:8000/api/most_listed_skills?limit=5&offset=2
+    localhost:8000/api/talent_grade_count?limit=10&offset=3&order_in=ASC
 
 # Backend Coding Challenge
 

@@ -6,7 +6,8 @@ import json
 
 
 class data_loader:
-    def create_connection(self,sql_db):
+    def create_connection(self,sql_db:str = 'planning'): # create connection with sqlite
+        
         try:
             sqlite_engine = create_engine(f'sqlite:///{sql_db}')
             conn = sqlite_engine.connect()
@@ -15,7 +16,7 @@ class data_loader:
         except Exception as e: 
             print(e)
             return False
-    def create_db_session(self,sql_db):
+    def create_db_session(self,sql_db: str = 'planning'): # create connection with sqlite and get the session
         try:
             sqlite_engine = create_engine(f'sqlite:///{sql_db}')
             conn = sqlite_engine.connect()
@@ -28,7 +29,7 @@ class data_loader:
 
         except SQLAlchemyError as se:
             print(se)
-    def create_table(self,sql_query,conn):
+    def create_table(self,sql_query: str,conn): # create table function using the input query from schema file
         try:
             with open(sql_query) as file:
                 query = text(file.read())
@@ -36,7 +37,7 @@ class data_loader:
             return True
         except Exception as e: 
             return False
-    def format_and_load_json_data(self,location,conn,sql_table):
+    def format_and_load_json_data(self,location,conn,sql_table): # The json data loader by taking the location of the file to be imported  
         try:
             with open(location) as f:
                 data = json.load(f)
@@ -46,7 +47,7 @@ class data_loader:
         except Exception as e: 
             print(e)
             return False
-    def query(self,query,conn):
+    def query(self,query,conn): # function to query from database taking queries as input 
         try:
             result = pd.read_sql(query,conn)
             print(result.head())
@@ -56,11 +57,12 @@ class data_loader:
             return False
 
 
-# if __name__ == "__main__":
-#         database = data_loader()
-#         conn = database.create_connection('planning.db')
-#         db = database.create_table('./Schema.sql', conn)
-#         warehouse = database.format_and_load_json_data('./../planning.json',conn,'planning')
-#         query = 'select * from planning'
-#         database.query(conn,query)
+if __name__ == "__main__":
+        # database = data_loader()
+        # conn = database.create_connection('planning.db')
+        # db = database.create_table('./Schema.sql', conn)
+        # warehouse = database.format_and_load_json_data('./../planning.json',conn,'planning')
+        # query = 'select * from planning'
+        # database.query(conn,query)
+        pass
 

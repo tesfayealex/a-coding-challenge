@@ -5,6 +5,8 @@ from sqlalchemy import Column, Integer, String, Float, Boolean, JSON
 
 Base = declarative_base()
 
+
+# Planning model only for testing fast api's pagination feature
 class Planning(Base):
 
     __tablename__ = "planning"
@@ -28,6 +30,8 @@ class Planning(Base):
     optionalSkills = Column(JSON)
     isUnassigned = Column(Boolean)
 
+
+# for designing the out put of pagination
 class PlanningOut(BaseModel):
     id : int
     originalId : str
